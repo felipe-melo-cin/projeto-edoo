@@ -26,7 +26,7 @@ class CLInterface { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
         // END SINGLETON DESIGN PATTERN
 
         // ARMAZENA INPUT DO USUÁRIO NA VARIÁVEL DO TERMINAL EM MAIÚSCULO
-        void input() { std::cin >> in; str_to_upper(in); }
+        void input() { std::cin >> in; std::cin.sync(); str_to_upper(in); }
 
         // RETORNA INPUT ARMAZENADO NA VARIÁVEL DO TERMINAL
         std::string get_input() const { return in; };
