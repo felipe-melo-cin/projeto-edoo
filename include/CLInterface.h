@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "toUpper.h"
+#include "str_to_upper.h"
 
 class CLInterface { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
 
@@ -21,15 +21,15 @@ class CLInterface { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
         CLInterface(const CLInterface&) = delete;
         CLInterface& operator=(const CLInterface&) = delete;
 
-        static CLInterface& getInstance();
+        static CLInterface& get_instance();
 
         // END SINGLETON DESIGN PATTERN
 
         // ARMAZENA INPUT DO USUÁRIO NA VARIÁVEL DO TERMINAL EM MAIÚSCULO
-        void input() { std::cin >> in; toUpper(in); }
+        void input() { std::cin >> in; str_to_upper(in); }
 
         // RETORNA INPUT ARMAZENADO NA VARIÁVEL DO TERMINAL
-        std::string getInput() const { return in; };
+        std::string get_input() const { return in; };
 
         template <class T> void output(const T&, bool = true) const;
         template <class T> void prompt(const T&, bool = false);

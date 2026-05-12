@@ -17,7 +17,7 @@ class Game { // CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
         Game(const Game&) = delete;
         Game& operator=(const Game&) = delete;
 
-        static Game& getInstance(StateMachine&, CLInterface&);
+        static Game& get_instance(StateMachine&, CLInterface&);
 
         // END SINGLETON DESIGN PATTERN
 

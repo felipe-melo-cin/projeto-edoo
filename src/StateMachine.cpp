@@ -4,7 +4,7 @@
 
 StateMachine::StateMachine() : emJogo(false), venceu(false) {}
 
-StateMachine& StateMachine::getInstance() {
+StateMachine& StateMachine::get_instance() {
     static StateMachine stateMachineSingleton;
     return stateMachineSingleton;
 }

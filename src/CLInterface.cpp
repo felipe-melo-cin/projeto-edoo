@@ -4,7 +4,7 @@
 
 CLInterface::CLInterface() {}
 
-CLInterface& CLInterface::getInstance() {
+CLInterface& CLInterface::get_instance() {
     static CLInterface cliSingleton;
     return cliSingleton;
 }

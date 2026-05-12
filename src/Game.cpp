@@ -5,7 +5,7 @@
 Game::Game(StateMachine& stateMachine, CLInterface& terminal) :
     stateMachine(stateMachine), terminal(terminal) {}
 
-Game& Game::getInstance(StateMachine& stateMachine, CLInterface& terminal) {
+Game& Game::get_instance(StateMachine& stateMachine, CLInterface& terminal) {
     static Game gameSingleton(stateMachine, terminal);
     return gameSingleton;
 }

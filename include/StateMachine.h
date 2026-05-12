@@ -18,17 +18,17 @@ class StateMachine { // CONTROLA OS ESTADOS DO JOGO
         StateMachine(const StateMachine&) = delete;
         StateMachine& operator=(const StateMachine&) = delete;
 
-        static StateMachine& getInstance();
+        static StateMachine& get_instance();
 
         // END SINGLETON DESIGN PATTERN
 
         // RETORNA ESTADO DO JOGO
-        bool getEmJogo() const { return emJogo; }
-        bool getVenceu() const { return venceu; }
+        bool get_em_jogo() const { return emJogo; }
+        bool get_venceu() const { return venceu; }
 
         // INVERTE ESTADO DO JOGO
-        void toggleEmJogo() { emJogo = !emJogo; }
-        void toggleVenceu() { venceu = !venceu; }
+        void toggle_em_jogo() { emJogo = !emJogo; }
+        void toggle_venceu() { venceu = !venceu; }
 
 };
 

@@ -6,23 +6,23 @@ using namespace std;
 
 int main() {
 
-    Game& game = Game::getInstance(
-        StateMachine::getInstance(),
-        CLInterface::getInstance()
+    Game& game = Game::get_instance(
+        StateMachine::get_instance(),
+        CLInterface::get_instance()
     );
 
     while (true) { // LOOP PRINCIPAL
 
-        if ( !game.stateMachine.getEmJogo() && !game.stateMachine.getVenceu() ) { // TELA INICIAL
+        if ( !game.stateMachine.get_em_jogo() && !game.stateMachine.get_venceu() ) { // TELA INICIAL
 
             game.terminal.output("\nECOS DE ARAÑAMI");
             game.terminal.output("[INICIAR]");
             game.terminal.output("[SAIR]");
 
-            if ( game.terminal.getInput() == "INICIAR" )
-                game.stateMachine.toggleEmJogo(); // emJogo = true;
+            if ( game.terminal.get_input() == "INICIAR" )
+                game.stateMachine.toggle_em_jogo(); // emJogo = true;
 
-            if ( game.terminal.getInput() == "SAIR" )
+            if ( game.terminal.get_input() == "SAIR" )
                 return 0;
 
         }
