@@ -1,4 +1,4 @@
-#include "OncaPintada.h"
+#include "../include/OncaPintada.h"
 
 OncaPintada::OncaPintada() {
     

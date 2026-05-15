@@ -8,8 +8,8 @@ class Capivara:public Enemy {
     
     public:
 
-        Capivara() {};
-        ~Capivara() {};
+        Capivara();
+        ~Capivara() {}
 
 };
 

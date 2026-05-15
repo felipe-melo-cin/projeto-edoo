@@ -8,7 +8,7 @@ class OncaPintada:public Entity {
     
     public:
 
-        OncaPintada() {}
+        OncaPintada();
         ~OncaPintada() {}
 
 };

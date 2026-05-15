@@ -1,3 +1,6 @@
+#define _INACTIVE_
+#ifndef _INACTIVE_
+
 class Collectable
 {
 private:
@@ -20,3 +23,4 @@ Collectable::~Collectable()
 {
 }
 
+#endif

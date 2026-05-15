@@ -8,7 +8,7 @@ class Tucano:public Enemy {
 
     public:
 
-        Tucano() {}
+        Tucano();
         ~Tucano() {}
 
 };
