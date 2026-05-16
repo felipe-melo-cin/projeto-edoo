@@ -1,10 +1,10 @@
 #ifndef _TUCANO_H_
 #define _TUCANO_H_
 
-#include "Enemy.h"
+#include "Inimigo.h"
 
 // Inimigo: Tucanoi
-class Tucano:public Enemy {
+class Tucano:public Inimigo {
 
     public:
 

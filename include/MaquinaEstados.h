@@ -1,11 +1,11 @@
-#ifndef _STATEMACHINE_H_
-#define _STATEMACHINE_H_
+#ifndef _MAQUINAESTADOS_H_
+#define _MAQUINAESTADOS_H_
 
-class StateMachine { // CONTROLA OS ESTADOS DO JOGO
+class MaquinaEstados { // CONTROLA OS ESTADOS DO JOGO
 
     private:
 
-        StateMachine(); // SINGLETON DESIGN PATTERN: CONSTRUTOR PRIVADO
+        MaquinaEstados(); // SINGLETON DESIGN PATTERN: CONSTRUTOR PRIVADO
 
         // ESTADOS DO JOGO
         bool emJogo;
@@ -15,10 +15,10 @@ class StateMachine { // CONTROLA OS ESTADOS DO JOGO
 
         // SINGLETON DESIGN PATTERN
 
-        StateMachine(const StateMachine&) = delete;
-        StateMachine& operator=(const StateMachine&) = delete;
+        MaquinaEstados(const MaquinaEstados&) = delete;
+        MaquinaEstados& operator=(const MaquinaEstados&) = delete;
 
-        static StateMachine& get_instance();
+        static MaquinaEstados& get_instance();
 
         // END SINGLETON DESIGN PATTERN
 

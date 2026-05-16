@@ -1,16 +1,16 @@
-#ifndef _CLINTERFACE_H_
-#define _CLINTERFACE_H_
+#ifndef _INTERFACECOMANDO_H_
+#define _INTERFACECOMANDO_H_
 
 #include <iostream>
 #include <string>
 
 #include "str_to_upper.h"
 
-class CLInterface { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
+class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
 
     private:
 
-        CLInterface(); // SINGLETON DESIGN PATTERN: CONSTRUTOR PRIVADO
+        InterfaceComando(); // SINGLETON DESIGN PATTERN: CONSTRUTOR PRIVADO
 
         std::string in;
 
@@ -18,10 +18,10 @@ class CLInterface { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
 
         // SINGLETON DESIGN PATTERN
 
-        CLInterface(const CLInterface&) = delete;
-        CLInterface& operator=(const CLInterface&) = delete;
+        InterfaceComando(const InterfaceComando&) = delete;
+        InterfaceComando& operator=(const InterfaceComando&) = delete;
 
-        static CLInterface& get_instance();
+        static InterfaceComando& get_instance();
 
         // END SINGLETON DESIGN PATTERN
 
@@ -38,13 +38,13 @@ class CLInterface { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
 
 // ESCREVE UMA MENSAGEM NO TERMINAL
 template <class T>
-void CLInterface::output(const T& out, bool endl) const {
+void InterfaceComando::output(const T& out, bool endl) const {
     std::cout << out;
     if (endl) std::cout << std::endl;
 }
 
 // ESCREVE UMA MENSAGEM + ARMAZENA INPUT
 template <class T>
-void CLInterface::prompt(const T& p, bool endl) { output(p, endl); input(); }
+void InterfaceComando::prompt(const T& p, bool endl) { output(p, endl); input(); }
 
 #endif

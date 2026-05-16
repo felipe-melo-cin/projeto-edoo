@@ -1,10 +1,10 @@
-#ifndef _ENTITY_H_
-#define _ENTITY_H_
+#ifndef _ENTIDADE_H_
+#define _ENTIDADE_H_
 
 #include "Camada.h"
 
 // Entidades, incluindo jogador e inimigos
-class Entity {
+class Entidade {
 
     private:
 
@@ -14,7 +14,7 @@ class Entity {
 
     public:
         
-        void atacar(Entity& alvo); // Recebe um alvo e lhe inflige dano
+        void atacar(Entidade& alvo); // Recebe um alvo e lhe inflige dano
         void sofrer_dano(); // Decrementa a vida
 
         // Getters

@@ -1,10 +1,10 @@
 #ifndef _CAPIVARA_H_
 #define _CAPIVARA_H_
 
-#include "Enemy.h"
+#include "Inimigo.h"
 
 // Inimigo: Capivara
-class Capivara:public Enemy {
+class Capivara:public Inimigo {
     
     public:
 

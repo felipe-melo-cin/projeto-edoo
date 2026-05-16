@@ -1,33 +1,33 @@
-#include "include/CLInterface.h"
-#include "include/Game.h"
-#include "include/StateMachine.h"
+#include "include/InterfaceComando.h"
+#include "include/Jogo.h"
+#include "include/MaquinaEstados.h"
 
 using namespace std;
 
 int main() {
 
-    Game& game = Game::get_instance(
-        StateMachine::get_instance(),
-        CLInterface::get_instance()
+    Jogo& jogo = Jogo::get_instance(
+        MaquinaEstados::get_instance(),
+        InterfaceComando::get_instance()
     );
 
     while (true) { // LOOP PRINCIPAL
 
-        if ( !game.stateMachine.get_em_jogo() && !game.stateMachine.get_venceu() ) { // TELA INICIAL
+        if ( !jogo.maquinaEstados.get_em_jogo() && !jogo.maquinaEstados.get_venceu() ) { // TELA INICIAL
 
-            game.terminal.output("\nECOS DE ARAÑAMI");
-            game.terminal.output("[INICIAR]");
-            game.terminal.output("[SAIR]");
+            jogo.terminal.output("\nECOS DE ARAÑAMI");
+            jogo.terminal.output("[INICIAR]");
+            jogo.terminal.output("[SAIR]");
 
-            if ( game.terminal.get_input() == "INICIAR" )
-                game.stateMachine.toggle_em_jogo(); // emJogo = true;
+            if ( jogo.terminal.get_input() == "INICIAR" )
+                jogo.maquinaEstados.toggle_em_jogo(); // emJogo = true;
 
-            if ( game.terminal.get_input() == "SAIR" )
+            if ( jogo.terminal.get_input() == "SAIR" )
                 return 0;
 
         }
 
-        if ( game.stateMachine.get_em_jogo() && !game.stateMachine.get_venceu() ) { // JOGO COMEÇA
+        if ( jogo.maquinaEstados.get_em_jogo() && !jogo.maquinaEstados.get_venceu() ) { // JOGO COMEÇA
 
             // INICIALIZA JOGADOR, INIMIGOS, COLETÁVEIS E PLATAFORMAS
 
@@ -99,30 +99,30 @@ int main() {
 
         }
 
-        if ( !game.stateMachine.get_em_jogo() && game.stateMachine.get_venceu() ) { // JOGADOR VENCEU
+        if ( !jogo.maquinaEstados.get_em_jogo() && jogo.maquinaEstados.get_venceu() ) { // JOGADOR VENCEU
 
             // DESTRÓI JOGADOR, INIMIGOS, COLETÁVEIS E PLATAFORMAS
 
-            game.terminal.output("VOCÊ VENCEU!");
-            game.terminal.output("[MENU]");
-            game.terminal.output("[REINICIAR]");
-            game.terminal.output("[SAIR]");
+            jogo.terminal.output("VOCÊ VENCEU!");
+            jogo.terminal.output("[MENU]");
+            jogo.terminal.output("[REINICIAR]");
+            jogo.terminal.output("[SAIR]");
 
-            if ( game.terminal.get_input() == "MENU" ) {
-                game.stateMachine.toggle_em_jogo(); // emJogo = true;
-                game.stateMachine.toggle_venceu(); // venceu = false;
+            if ( jogo.terminal.get_input() == "MENU" ) {
+                jogo.maquinaEstados.toggle_em_jogo(); // emJogo = true;
+                jogo.maquinaEstados.toggle_venceu(); // venceu = false;
             }
             
-            if ( game.terminal.get_input() == "REINICIAR" ) {
-                game.stateMachine.toggle_venceu(); // venceu = false;
+            if ( jogo.terminal.get_input() == "REINICIAR" ) {
+                jogo.maquinaEstados.toggle_venceu(); // venceu = false;
             }
 
-            if ( game.terminal.get_input() == "SAIR" )
+            if ( jogo.terminal.get_input() == "SAIR" )
                 return 0;
             
         }
 
-        game.terminal.prompt("> ");
+        jogo.terminal.prompt("> ");
 
     }
 

@@ -1,10 +1,10 @@
 #ifndef _ONCAPINTADA_H_
 #define _ONCAPINTADA_H_
 
-#include "Enemy.h"
+#include "Inimigo.h"
 
 // Inimigo: Onça Pintada
-class OncaPintada:public Entity {
+class OncaPintada:public Inimigo {
     
     public:
 

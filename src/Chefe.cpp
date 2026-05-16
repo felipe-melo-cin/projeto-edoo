@@ -1,6 +1,6 @@
-#include "../include/Boss.h"
+#include "../include/Chefe.h"
 
-Boss::Boss() {
+Chefe::Chefe() {
 
     set_vida(1);
     set_camada(MEDIA);
