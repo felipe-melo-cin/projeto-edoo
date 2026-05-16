@@ -1,7 +1,12 @@
 #include <iostream>
 #include "../include/Collectable.h"
-#include <cstdlib>
-/*decide onde o coletavel vai nascer, baseado em qual posição do vetor da zona da instancia,atraves da geraça~o de um numwero aleatório de 0 a 12*/
+#include <random>//biblioteca muito melhor para gerar aleatórios em relação as tranqueiras do C.
+#include <ctime>//semente para deixar as saídas pseudoaleatórias
+
+
+/*decide onde o coletavel vai nascer, baseado em qual posição do vetor da zona da instancia,atraves da geraçao de um numero aleatório de 0 a 12*/
 int Collectable::appear(){
-  
+    static std::mt19937 gerador(std::time(nullptr));//gerador utilizando o unix timestamp para valores pseudoaleatórios únicos
+    std::uniform_int_distribution<int> distribuicao(0, 12);
+    return distribuicao(gerador);
 }

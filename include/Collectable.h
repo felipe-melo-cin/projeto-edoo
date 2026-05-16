@@ -1,11 +1,9 @@
 #ifndef _COLLECTABLE_H_
 #define _COLLECTABLE_H_
 
-class Collectable
-{
+class Collectable {
 public:
-    bool appear(){
-        }
+    int appear();
 };
 
 #endif
