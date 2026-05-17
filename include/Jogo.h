@@ -1,8 +1,10 @@
 #ifndef _JOGO_H_
 #define _JOGO_H_
 
-#include "../include/InterfaceComando.h"
-#include "../include/MaquinaEstados.h"
+#include "InterfaceComando.h"
+#include "MaquinaEstados.h"
+#include "Player.h"
+#include "Zona.h"
 
 class Jogo { // CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
 
@@ -23,6 +25,8 @@ class Jogo { // CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
 
         MaquinaEstados& maquinaEstados;
         InterfaceComando& terminal;
+        Player* player;
+        Zona* zonas[13];
 
 };
 
