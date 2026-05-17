@@ -1,4 +1,4 @@
-#include "../include/InterfaceComando.h"
+#include "../../include/nucleo/InterfaceComando.h"
 
 // SINGLETON DESIGN PATTERN
 

@@ -1,4 +1,4 @@
-#include "../include/Entidade.h"
+#include "../../include/entidades/Entidade.h"
 
 void Entidade::atacar(Entidade& alvo) {
     alvo.sofrer_dano();

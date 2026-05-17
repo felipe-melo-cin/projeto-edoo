@@ -1,13 +1,14 @@
-#include "include/InterfaceComando.h"
-#include "include/Jogo.h"
-#include "include/MaquinaEstados.h"
-#include "include/Player.h"
-#include "include/Zona.h"
+#include "include/nucleo/InterfaceComando.h"
+#include "include/nucleo/Jogo.h"
+#include "include/nucleo/MaquinaEstados.h"
 
-#include "include/Capivara.h"
-#include "include/Tucano.h"
-#include "include/OncaPintada.h"
-#include "include/Chefe.h"
+#include "include/mundo/Zona.h"
+
+#include "include/entidades/Player.h"
+#include "include/entidades/Capivara.h"
+#include "include/entidades/Tucano.h"
+#include "include/entidades/OncaPintada.h"
+#include "include/entidades/Chefe.h"
 
 using namespace std;
 

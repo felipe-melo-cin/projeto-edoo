@@ -4,7 +4,7 @@
 #include <iostream>
 #include <string>
 
-#include "str_to_upper.h"
+#include "../utilitarios/str_to_upper.h"
 
 class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
 

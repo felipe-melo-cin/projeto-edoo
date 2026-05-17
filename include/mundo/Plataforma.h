@@ -1,7 +1,7 @@
 #ifndef _PLATAFORMA_H_
 #define _PLATAFORMA_H_
 
-#include "Camada.h"
+#include "../utilitarios/Camada.h"
 
 class Plataforma {
 

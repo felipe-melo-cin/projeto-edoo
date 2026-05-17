@@ -3,8 +3,8 @@
 
 #include "InterfaceComando.h"
 #include "MaquinaEstados.h"
-#include "Player.h"
-#include "Zona.h"
+#include "../entidades/Player.h"
+#include "../mundo/Zona.h"
 
 class Jogo { // CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
 

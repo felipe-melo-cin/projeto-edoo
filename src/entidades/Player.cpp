@@ -1,4 +1,4 @@
-#include "../include/Player.h"
+#include "../../include/entidades/Player.h"
 
 Player::Player() {
     set_vida(maxVida);

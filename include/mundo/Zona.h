@@ -3,8 +3,8 @@
 
 #include <vector>
 
-#include "Coletavel.h"
-#include "Inimigo.h"
+#include "../objetos/Coletavel.h"
+#include "../entidades/Inimigo.h"
 #include "Plataforma.h"
 
 class Zona {

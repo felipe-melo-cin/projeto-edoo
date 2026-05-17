@@ -1,4 +1,4 @@
-#include "../include/Jogo.h"
+#include "../../include/nucleo/Jogo.h"
 
 // SINGLETON DESIGN PATTERN
 

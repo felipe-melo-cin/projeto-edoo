@@ -1,5 +1,5 @@
 #include <iostream>
-#include "../include/Coletavel.h"
+#include "../../include/objetos/Coletavel.h"
 #include <random>//biblioteca muito melhor para gerar aleatórios em relação as tranqueiras do C.
 #include <ctime>//semente para deixar as saídas pseudoaleatórias
 

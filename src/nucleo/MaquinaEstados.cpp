@@ -1,4 +1,4 @@
-#include "../include/MaquinaEstados.h"
+#include "../../include/nucleo/MaquinaEstados.h"
 
 // SINGLETON DESIGN PATTERN
 

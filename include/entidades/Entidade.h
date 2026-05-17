@@ -1,7 +1,7 @@
 #ifndef _ENTIDADE_H_
 #define _ENTIDADE_H_
 
-#include "Camada.h"
+#include "../utilitarios/Camada.h"
 
 // Entidades, incluindo jogador e inimigos
 class Entidade {
