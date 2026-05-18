@@ -1,5 +1,5 @@
-#ifndef FUNCOES_UTEIS_H
-#define FUNCOES_UTEIS_H
+#ifndef _GERADOR_ALEATORIEDADE_H_
+#define _GERADOR_ALEATORIEDADE_H_
 #include <random>//biblioteca muito melhor para gerar aleatórios em relação as tranqueiras do C.
 #include <ctime>//semente para deixar as saídas pseudoaleatórias
 
