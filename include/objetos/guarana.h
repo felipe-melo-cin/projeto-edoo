@@ -4,9 +4,10 @@
 
 class guarana : public Coletavel {
 private:
-  int codigo; // a decidir qual o critério
+  inline static int codigo = 0; // a decidir qual o critério
 public:
-  //
+  static int pega_codigo() {
+    return codigo;
 }
 
 
