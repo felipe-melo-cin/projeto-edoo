@@ -2,7 +2,7 @@
 #define _PIPA_H_
 #include "Coletavel.h"
 
-class pipa : public Coletavel {
+class Pipa : public Coletavel {
 private:
   const static int codigo = 2; // a decidir qual o critério
 public:
