@@ -4,7 +4,11 @@
 
 class pipa : public Coletavel {
 private:
-  int codigo; // a decidir qual o critério
+  const static int codigo = 2; // a decidir qual o critério
 public:
-  //
-}
+  const static int get_codigo() {
+    return codigo;
+  }
+};
+
+#endif

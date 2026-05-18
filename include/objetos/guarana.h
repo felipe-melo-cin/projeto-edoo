@@ -4,11 +4,11 @@
 
 class guarana : public Coletavel {
 private:
-  static int codigo = 0; // a decidir qual o critério
+  const static int codigo = 0; // a decidir qual o critério
 public:
-  static int get_code() {
-    return guarana::codigo;
-}
+  const static int get_codigo() {
+    return codigo;
+  }
+};
 
-
-
+#endif
