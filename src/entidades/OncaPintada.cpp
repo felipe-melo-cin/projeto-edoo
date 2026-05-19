@@ -2,6 +2,7 @@
 
 OncaPintada::OncaPintada() {
     
+    set_nome("Onça");
     set_vida(2);
     set_camada(CHAO);
 

@@ -1,6 +1,8 @@
 #ifndef _ENTIDADE_H_
 #define _ENTIDADE_H_
 
+#include <string>
+
 #include "../utilitarios/Camada.h"
 
 // Entidades, incluindo jogador e inimigos
@@ -8,6 +10,7 @@ class Entidade {
 
     private:
 
+        std::string nome;
         int vida;
         bool atacando = false;
         enum Camada camada;
@@ -18,11 +21,13 @@ class Entidade {
         void sofrer_dano(); // Decrementa a vida
 
         // Getters
-        int  get_vida() {return vida;}
+        const std::string& get_nome() {return nome;}
+        int get_vida() {return vida;}
         bool get_atacando() {return atacando;}
-        int  get_camada() {return camada;}
+        enum Camada get_camada() {return camada;}
         
         // Setters
+        void set_nome(std::string nome) {this->nome = nome;}
         void set_vida(int vida) {this->vida = vida;}
         void toggle_atacando() {atacando = !atacando;}
         void set_camada(enum Camada camada) {this->camada = camada;}
