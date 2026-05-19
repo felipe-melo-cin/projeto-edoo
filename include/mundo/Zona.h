@@ -40,6 +40,10 @@ class Zona {
         void eliminar_inimigo(int index) { delete get_inimigo(index); inimigos.erase(inimigos.begin() + index); }
         void eliminar_plataforma(int index) { delete get_inimigo(index); plataformas.erase(plataformas.begin() + index); }
 
+        int quantidade_coletaveis() { return coletaveis.size(); }
+        int quantidade_inimigos() { return inimigos.size(); }
+        int quantidade_plataformas() { return plataformas.size(); }
+
 };
 
 #endif
