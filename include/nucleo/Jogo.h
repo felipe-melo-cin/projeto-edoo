@@ -25,7 +25,7 @@ class Jogo { // CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
 
         MaquinaEstados& maquinaEstados;
         InterfaceComando& terminal;
-        Player* player;
+        Player* player = nullptr;
         Zona* zonas[13];
 
 };

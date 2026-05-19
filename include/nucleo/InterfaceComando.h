@@ -4,6 +4,10 @@
 #include <iostream>
 #include <string>
 
+#include "../mundo/Zona.h"
+
+#include "../entidades/Entidade.h"
+
 #include "../utilitarios/str_to_upper.h"
 
 class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
@@ -34,6 +38,8 @@ class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
         template <class T> void output(const T&, bool = true) const;
         template <class T> void prompt(const T&, bool = false);
 
+        template <class T, class U> void listar_vetor(Zona*, T* (Zona::*)(int), const std::string& (U::*)(), int (Zona::*)());
+
 };
 
 // ESCREVE UMA MENSAGEM NO TERMINAL
@@ -46,5 +52,16 @@ void InterfaceComando::output(const T& out, bool endl) const {
 // ESCREVE UMA MENSAGEM + ARMAZENA INPUT
 template <class T>
 void InterfaceComando::prompt(const T& p, bool endl) { output(p, endl); input(); }
+
+// LISTA UM ATRIBUTO DOS ELEMENTOS DO VETOR DE UMA ZONA EM ORDEM CRESCENTE
+template <class T, class U>
+void InterfaceComando::listar_vetor(Zona* zona, T* (Zona::*func_getter_zona)(int), const std::string& (U::*func_getter_tipo)(), int (Zona::*func_quantidade)()) {
+
+    for (int i = 0; i < (zona->*func_quantidade)(); ++i) {
+        std::cout << '[' << i + 1 << "] ";
+        output(((zona->*func_getter_zona)(i)->*func_getter_tipo)());
+    }
+
+}
 
 #endif
