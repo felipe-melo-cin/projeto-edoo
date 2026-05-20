@@ -29,6 +29,11 @@ class Player : public Entidade {
         Player();
         ~Player() { delete plataforma; }
 
+        bool curar();
+
+        void incremento_inventario(int codigo) { ++inventario.at(codigo); }
+        void decremento_inventario(int codigo) { --inventario.at(codigo); }
+
         int get_max_vida() { return maxVida; }
         bool get_pulo_duplo() { return puloDuplo; }
         Plataforma* get_plataforma() { return plataforma; }
