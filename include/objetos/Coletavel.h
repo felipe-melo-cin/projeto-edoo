@@ -7,6 +7,8 @@ class Coletavel {
 private:
     std::string nome;
 public:
+    Coletavel() {}
+    virtual ~Coletavel() {}
     int aparecer();
     const std::string& get_nome() { return nome; }
     void set_nome(const std::string& nome) { this->nome = nome; }
