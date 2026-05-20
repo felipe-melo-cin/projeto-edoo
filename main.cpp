@@ -28,7 +28,7 @@ int main() {
     Zona *zonaAtual, *z0, *z1, *z2, *z3, *z4, *z5, *z6, *z7, *z8, *z9, *z10, *z11, *z12;
     int indiceZonaAtual = 0;
 
-    bool turnoInimigos = false;
+    bool turnoInimigos;
 
     while (true) { // LOOP PRINCIPAL
 
@@ -104,6 +104,9 @@ int main() {
                 // DEFINE ZONA INICIAL
                 zonaAtual = z0;
                 indiceZonaAtual = 0;
+
+                // DEFINE TURNO DOS INIMIGOS
+                bool turnoInimigos = false;
 
                 // ZONA 0
                 z0->carregar_inimigo(new Capivara); // 2 CAPIVARAS
@@ -206,7 +209,15 @@ int main() {
                 jogo.terminal.output(""); // LINHA VAZIA
 
                 jogo.terminal.output("VIDA: ", false);
-                jogo.terminal.output(jogo.player->get_vida());
+                jogo.terminal.output(jogo.player->get_vida(), false);
+                jogo.terminal.output('/', false);
+                jogo.terminal.output(jogo.player->get_max_vida());
+                jogo.terminal.output("PEDRAS: ", false);
+                jogo.terminal.output(jogo.player->get_inventario(Pedra::get_codigo()));
+                jogo.terminal.output("GUARANÁ: ", false);
+                jogo.terminal.output(jogo.player->get_inventario(Guarana::get_codigo()));
+                jogo.terminal.output("PIPA: ", false);
+                jogo.terminal.output(jogo.player->get_inventario(Pipa::get_codigo()));
                 jogo.terminal.output("LOCAL: ", false);
                 jogo.terminal.output(jogo.player->get_plataforma()->get_nome());
 
@@ -276,12 +287,18 @@ int main() {
 
                             jogo.terminal.output("Seu ataque falhou. O inimigo está em uma camada diferente.");
 
-                        } else { // JOGADOR ACERTA INIMIGO
+                        } else if (jogo.player->get_inventario(Pedra::get_codigo())) { // JOGADOR ACERTA INIMIGO
 
-                            alvo->sofrer_dano();
+                            jogo.player->atacar(*alvo);
+                            jogo.player->decremento_inventario(Pedra::get_codigo());
+
                             jogo.terminal.output(jogo.player->get_nome(), false);
                             jogo.terminal.output(" acertou ", false);
                             jogo.terminal.output(alvo->get_nome());
+
+                        } else { // NÃO HÁ MUNIÇÃO O SUFICIENTE
+
+                            jogo.terminal.output("Seu ataque falhou. Você não tem munição.");
 
                         }
 
@@ -294,17 +311,19 @@ int main() {
                             if (
                                 (nomeAtacante == "Capivara" && mesmaCamada) ||
                                 (nomeAtacante == "Tucano" && vivoAtacante) ||
-                                (nomeAtacante == "Onça" && vivoAtacante && mesmaCamada)
+                                (nomeAtacante == "Onça" && vivoAtacante && mesmaCamada) ||
+                                (nomeAtacante == "Chefe" && vivoAtacante && mesmaCamada)
                             ) {
 
-                                jogo.player->sofrer_dano();
-                                jogo.terminal.output(atacante->get_nome(), false);
+                                atacante->atacar(*jogo.player);
+
+                                jogo.terminal.output(nomeAtacante, false);
                                 jogo.terminal.output(" acertou ", false);
                                 jogo.terminal.output(jogo.player->get_nome());
 
-                            } else {
+                            } else if (vivoAtacante) {
 
-                                jogo.terminal.output(atacante->get_nome(), false);
+                                jogo.terminal.output(nomeAtacante, false);
                                 jogo.terminal.output(" errou");
 
                             }
@@ -348,22 +367,122 @@ int main() {
                     }
 
                     if (atacante != nullptr) {
+
+                        std::string nomeAtacante = atacante->get_nome();
+
+                        if (nomeAtacante == "Chefe" && jogo.player->get_camada() == CHAO && !jogo.player->get_pulo_duplo()) {
+
+                            atacante->atacar(*jogo.player);
+
+                            jogo.terminal.output("Não é possível pular por cima do chefe sem a pipa");
+                            jogo.terminal.output(nomeAtacante, false);
+                            jogo.terminal.output(" acertou ", false);
+                            jogo.terminal.output(jogo.player->get_nome());
+
+                        } else {
                         
-                        jogo.terminal.output(atacante->get_nome(), false);
-                        jogo.terminal.output(" errou");
+                            jogo.terminal.output(nomeAtacante, false);
+                            jogo.terminal.output(" errou");
+
+                        }
 
                     }
 
                 } else if ( terminalInput == "COLETAR" ) {
 
-                    // SERÁ IMPLEMENTADO EM BREVE...
+                    if (!quantidadeColetaveis) { // NÃO EXISTEM COLETÁVEIS NA ZONA
+
+                        jogo.terminal.output("Não há coletáveis nessa zona.");
+                    
+                    } else if (jogo.player->get_camada() != CHAO) { // PLAYER NÃO ESTÁ NO CHÃO
+
+                        jogo.terminal.output("Não é possível coletar itens onde você está");
+
+                    } else { // EXISTEM COLETÁVEIS NA ZONA E PLAYER ESTÁ NA CHÃO
+
+                        int indiceAlvo;
+                        std::string alvoNome;
+                        Coletavel* alvo;
+
+                        do {
+
+                            jogo.terminal.listar_vetor(zonaAtual, Zona::get_coletavel, Coletavel::get_nome, Zona::quantidade_coletaveis);
+
+                            jogo.terminal.prompt("> ");
+                            indiceAlvo = std::stoi(jogo.terminal.get_input()) - 1;
+
+                        } while (indiceAlvo < 0 || indiceAlvo > quantidadeColetaveis - 1);
+
+                        alvo = zonaAtual->get_coletavel(indiceAlvo);
+
+                        alvoNome = alvo->get_nome();
+
+                        zonaAtual->eliminar_coletavel(indiceAlvo);
+
+                        jogo.terminal.output("Você coletou ", false);
+                        jogo.terminal.output(alvoNome);
+
+                        if (alvoNome == "Guaraná") {
+
+                            jogo.player->incremento_inventario(Guarana::get_codigo());
+
+                            if (jogo.player->curar()) {
+
+                                jogo.terminal.output("Você recuperou um ponto de vida");
+
+                            } else {
+
+                                jogo.terminal.output("Você já está com a vida cheia");
+
+                            }
+
+
+                        } else if (alvoNome == "Pedra") {
+
+                            jogo.player->incremento_inventario(Pedra::get_codigo());
+
+                        } else if (alvoNome == "Pipa") {
+
+                            jogo.player->incremento_inventario(Pipa::get_codigo());
+                            jogo.player->toggle_pulo_duplo(); // puloDuplo = true
+
+                        }
+
+                        if (atacante != nullptr) {
+
+                            std::string nomeAtacante = atacante->get_nome();
+                            bool mesmaCamada = jogo.player->get_camada() == atacante->get_camada();
+                            
+                            if (
+                                (nomeAtacante == "Capivara" && mesmaCamada) ||
+                                (nomeAtacante == "Tucano") ||
+                                (nomeAtacante == "Onça" && mesmaCamada) ||
+                                (nomeAtacante == "Chefe" && mesmaCamada)
+                            ) {
+
+                                atacante->atacar(*jogo.player);
+
+                                jogo.terminal.output(nomeAtacante, false);
+                                jogo.terminal.output(" acertou ", false);
+                                jogo.terminal.output(jogo.player->get_nome());
+
+                            } else {
+
+                                jogo.terminal.output(nomeAtacante, false);
+                                jogo.terminal.output(" errou");
+
+                            }
+
+                        }
+
+                    }
 
                 } else if ( terminalInput == "AVANCAR" ) {
 
                     if (zonaAtual == z12) {
 
                         jogo.terminal.output("Você está na última zona. Não é possível avançar mais.");
-                        jogo.terminal.output("\nM A T E  O  C H E F E.\n");
+                        jogo.terminal.output("\nM A T E  O  C H E F E");
 
                     } else {
 
@@ -374,7 +493,7 @@ int main() {
                         jogo.player->set_camada(CHAO);
 
                         jogo.terminal.output("Você avançou para a Zona ", false);
-                        jogo.terminal.output(indiceZonaAtual);
+                        jogo.terminal.output(indiceZonaAtual + 1);
 
                     }
 
@@ -392,8 +511,8 @@ int main() {
                         jogo.player->set_plataforma(zonaAtual->get_plataforma(0));
                         jogo.player->set_camada(CHAO);
 
-                        jogo.terminal.output("Você voltou para a zona ", false);
-                        jogo.terminal.output(indiceZonaAtual);
+                        jogo.terminal.output("Você voltou para a Zona ", false);
+                        jogo.terminal.output(indiceZonaAtual + 1);
 
                     }
 
@@ -411,6 +530,14 @@ int main() {
 
                             jogo.terminal.output(inimigo->get_nome(), false);
                             jogo.terminal.output(" morreu");
+
+                            if (inimigo->get_nome() == "Chefe") { // JOGO TERMINA (FINAL BOM)
+
+                                jogo.maquinaEstados.toggle_em_jogo(); // emJogo = false
+                                jogo.maquinaEstados.toggle_venceu(); // venceu = true
+
+                            }
+
                             zonaAtual->eliminar_inimigo(i);
                             continue;
 
@@ -422,7 +549,7 @@ int main() {
                 
                 }
 
-                if (!jogo.player->get_vida()) { // JOGO TERMINA
+                if (!jogo.player->get_vida()) { // JOGO TERMINA (FINAL RUIM)
 
                     jogo.terminal.output(jogo.player->get_nome(), false);
                     jogo.terminal.output(" morreu. Fim de Jogo.");
