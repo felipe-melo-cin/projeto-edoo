@@ -4,7 +4,7 @@
 #include "Inimigo.h"
 
 // Inimigo: Onça Pintada
-class OncaPintada:public Inimigo {
+class OncaPintada : public Inimigo {
     
     public:
 

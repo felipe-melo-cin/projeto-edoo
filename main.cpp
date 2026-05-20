@@ -1,20 +1,19 @@
-#include "include/nucleo/InterfaceComando.h"
-#include "include/nucleo/Jogo.h"
-#include "include/nucleo/MaquinaEstados.h"
-
-#include "include/mundo/Zona.h"
-
 #include "include/entidades/Player.h"
 #include "include/entidades/Capivara.h"
 #include "include/entidades/Tucano.h"
 #include "include/entidades/OncaPintada.h"
 #include "include/entidades/Chefe.h"
 
+#include "include/nucleo/InterfaceComando.h"
+#include "include/nucleo/Jogo.h"
+#include "include/nucleo/MaquinaEstados.h"
+
 #include "include/objetos/Guarana.h"
 #include "include/objetos/Pedra.h"
 #include "include/objetos/Pipa.h"
 
 #include "include/utilitarios/gerador_aleatoriedade.h"
+#include "include/mundo/Zona.h"
 
 using namespace std;
 
@@ -274,7 +273,7 @@ int main() {
 
                         do {
 
-                            jogo.terminal.listar_vetor(zonaAtual, Zona::get_inimigo, Inimigo::get_nome, Zona::quantidade_inimigos);
+                            jogo.terminal.listar_vetor(zonaAtual, &Zona::get_inimigo, &Inimigo::get_nome, &Zona::quantidade_inimigos);
 
                             jogo.terminal.prompt("> ");
                             indiceAlvo = std::stoi(jogo.terminal.get_input()) - 1;
@@ -344,7 +343,7 @@ int main() {
 
                     do {
 
-                        jogo.terminal.listar_vetor(zonaAtual, Zona::get_plataforma, Plataforma::get_nome, Zona::quantidade_plataformas);
+                        jogo.terminal.listar_vetor(zonaAtual, &Zona::get_plataforma, &Plataforma::get_nome, &Zona::quantidade_plataformas);
 
                         jogo.terminal.prompt("> ");
                         indiceAlvo = std::stoi(jogo.terminal.get_input()) - 1;
@@ -406,7 +405,7 @@ int main() {
 
                         do {
 
-                            jogo.terminal.listar_vetor(zonaAtual, Zona::get_coletavel, Coletavel::get_nome, Zona::quantidade_coletaveis);
+                            jogo.terminal.listar_vetor(zonaAtual, &Zona::get_coletavel, &Coletavel::get_nome, &Zona::quantidade_coletaveis);
 
                             jogo.terminal.prompt("> ");
                             indiceAlvo = std::stoi(jogo.terminal.get_input()) - 1;

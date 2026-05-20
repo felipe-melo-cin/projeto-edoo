@@ -4,7 +4,7 @@
 #include "Inimigo.h"
 
 // Inimigo: Capivara
-class Capivara:public Inimigo {
+class Capivara : public Inimigo {
     
     public:
 

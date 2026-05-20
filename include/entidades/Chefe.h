@@ -4,7 +4,7 @@
 #include "Inimigo.h"
 
 // Inimigo: Boss
-class Chefe:public Inimigo {
+class Chefe : public Inimigo {
 
     public:
 

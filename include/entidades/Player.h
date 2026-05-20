@@ -1,15 +1,14 @@
 #ifndef _PLAYER_H_
 #define _PLAYER_H_
 
-#include <unordered_map>
-
-#include "Entidade.h"
-
-#include "../mundo/Plataforma.h"
-
 #include "../objetos/Guarana.h"
 #include "../objetos/Pedra.h"
 #include "../objetos/Pipa.h"
+
+#include <unordered_map>
+#include "Entidade.h"
+#include "../mundo/Plataforma.h"
+
 
 class Player : public Entidade {
 

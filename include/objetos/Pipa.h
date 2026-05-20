@@ -1,5 +1,6 @@
 #ifndef _PIPA_H_
 #define _PIPA_H_
+
 #include <string>
 #include "Coletavel.h"
 

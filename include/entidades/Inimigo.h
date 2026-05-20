@@ -3,7 +3,7 @@
 
 #include "Entidade.h"
 
-class Inimigo:public Entidade{
+class Inimigo : public Entidade {
 
     public:
 

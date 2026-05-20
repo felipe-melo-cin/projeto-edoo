@@ -5,7 +5,9 @@
 InterfaceComando::InterfaceComando() {}
 
 InterfaceComando& InterfaceComando::get_instance() {
+
     static InterfaceComando cliSingleton;
+    
     return cliSingleton;
 }
 

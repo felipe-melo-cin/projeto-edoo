@@ -1,11 +1,11 @@
 #ifndef _ZONA_H_
 #define _ZONA_H_
 
-#include <vector>
-
 #include "../objetos/Coletavel.h"
 #include "../entidades/Inimigo.h"
 #include "Plataforma.h"
+
+#include <vector>
 
 class Zona {
 
