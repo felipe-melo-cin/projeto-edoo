@@ -16,7 +16,9 @@ class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
 
         InterfaceComando(); // SINGLETON DESIGN PATTERN: CONSTRUTOR PRIVADO
 
-        std::string in;
+        // INPUTS ARMAZENADOS NO TERMINAL
+        std::string stringIn;
+        int intIn;
 
     public:
 
@@ -29,16 +31,21 @@ class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
 
         // END SINGLETON DESIGN PATTERN
 
-        // ARMAZENA INPUT DO USUÁRIO NA VARIÁVEL DO TERMINAL EM MAIÚSCULO
-        void input() { std::cin >> in; std::cin.sync(); str_to_upper(in); }
+        // IMPRIME UMA LINHA VAZIA
+        void line_break() const { std::cout << std::endl; }
 
-        // RETORNA INPUT ARMAZENADO NA VARIÁVEL DO TERMINAL
-        std::string get_input() const { return in; };
+        // ARMAZENAM INPUT DO USUÁRIO NO TERMINAL
+        void input() { std::cin >> stringIn; std::cin.sync(); str_to_upper(stringIn); }
+        void int_input() { std::cin >> intIn; std::cin.sync(); }
+
+        // RETORNA INPUT ARMAZENADO NO TERMINAL
+        std::string get_input() const { return stringIn; };
+        int get_int_input() const { return intIn; }
 
         template <class T> void output(const T&, bool = true) const;
         template <class T> void prompt(const T&, bool = false);
-
-        template <class T, class U> void listar_vetor(Zona*, T* (Zona::*)(int), const std::string& (U::*)(), int (Zona::*)());
+        template <class T> void int_prompt(const T&, bool = false);
+        template <class T> void listar_vetor(Zona*, T* (Zona::*)(int), const std::string& (T::*)(), int (Zona::*)()) const;
 
 };
 
@@ -53,9 +60,13 @@ void InterfaceComando::output(const T& out, bool endl) const {
 template <class T>
 void InterfaceComando::prompt(const T& p, bool endl) { output(p, endl); input(); }
 
+// ESCREVE UM NÚMERO + ARMAZENA INPUT
+template <class T>
+void InterfaceComando::int_prompt(const T& p, bool endl) { output(p, endl); int_input(); }
+
 // LISTA UM ATRIBUTO DOS ELEMENTOS DO VETOR DE UMA ZONA EM ORDEM CRESCENTE
-template <class T, class U>
-void InterfaceComando::listar_vetor(Zona* zona, T* (Zona::*func_getter_zona)(int), const std::string& (U::*func_getter_tipo)(), int (Zona::*func_quantidade)()) {
+template <class T>
+void InterfaceComando::listar_vetor(Zona* zona, T* (Zona::*func_getter_zona)(int), const std::string& (T::*func_getter_tipo)(), int (Zona::*func_quantidade)()) const {
 
     for (int i = 0; i < (zona->*func_quantidade)(); ++i) {
         std::cout << '[' << i + 1 << "] ";
