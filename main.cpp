@@ -105,14 +105,14 @@ int main() {
                 indiceZonaAtual = 0;
 
                 // DEFINE TURNO DOS INIMIGOS
-                bool turnoInimigos = false;
+                turnoInimigos = false;
 
                 // ZONA 0
                 z0->carregar_inimigo(new Capivara); // 2 CAPIVARAS
                 z0->carregar_inimigo(new Capivara);
-                z0->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z0->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z0->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
+                z0->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z0->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z0->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
 
                 // PLAYER COMEÇA NO CHÃO DA ZONA 0
                 jogo.player->set_plataforma(z0->get_plataforma(0));
@@ -120,81 +120,81 @@ int main() {
                 // ZONA 1
                 z1->carregar_inimigo(new Capivara); // 1 CAPIVARA
                 z1->carregar_inimigo(new Tucano); // 1 TUCANO
-                z1->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z1->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z1->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
+                z1->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z1->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z1->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
 
                 // ZONA 2
                 z2->carregar_inimigo(new OncaPintada); // 1 ONÇA
-                z2->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z2->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z2->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
+                z2->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z2->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z2->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
 
                 // ZONA 3
                 z3->carregar_inimigo(new Capivara); // 1 CAPIVARA
                 z3->carregar_inimigo(new Tucano); // 1 TUCANO
-                z3->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z3->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z3->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
+                z3->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z3->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z3->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
 
                 // ZONA 4
                 z4->carregar_inimigo(new OncaPintada); // 1 ONÇA
-                z4->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z4->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z4->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
+                z4->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z4->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z4->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
 
                 // ZONA 5
                 z5->carregar_inimigo(new Capivara); // 1 CAPIVARA
                 z5->carregar_inimigo(new Tucano); // 1 TUCANO
-                z5->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z5->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z5->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
+                z5->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z5->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z5->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
 
                 // ZONA 6
                 z6->carregar_inimigo(new OncaPintada); // 1 ONÇA
-                z6->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z6->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
+                z6->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z6->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
 
                 // ZONA 7
                 z7->carregar_inimigo(new Tucano); // 1 TUCANO
-                z7->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z7->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z7->carregar_plataforma(new Plataforma(MEDIA)); // 2 PLATAFORMAS MÉDIAS
-                z7->carregar_plataforma(new Plataforma(MEDIA));
+                z7->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z7->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z7->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 2 PLATAFORMAS MÉDIAS
+                z7->carregar_plataforma(new Plataforma(Camada::MEDIA));
 
                 // ZONA 8
-                z8->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z8->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
+                z8->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z8->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
 
                 // ZONA 9
                 z9->carregar_inimigo(new Capivara); // 1 CAPIVARA
                 z9->carregar_inimigo(new Tucano); // 1 TUCANO
-                z9->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z9->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z9->carregar_plataforma(new Plataforma(MEDIA)); // 3 PLATAFORMAS MÉDIAS
-                z9->carregar_plataforma(new Plataforma(MEDIA));
-                z9->carregar_plataforma(new Plataforma(MEDIA));
+                z9->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z9->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z9->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 3 PLATAFORMAS MÉDIAS
+                z9->carregar_plataforma(new Plataforma(Camada::MEDIA));
+                z9->carregar_plataforma(new Plataforma(Camada::MEDIA));
 
                 // ZONA 10
                 z10->carregar_inimigo(new OncaPintada); // 1 ONÇA
-                z10->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z10->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z10->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
-                z10->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
+                z10->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z10->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z10->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
+                z10->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
 
                 // ZONA 11
-                z11->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z11->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z11->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
+                z11->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z11->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z11->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
 
                 // ZONA 12
                 z12->carregar_inimigo(new Chefe); // 1 CHEFE
-                z12->carregar_plataforma(new Plataforma(CHAO)); // CHÃO
-                z12->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
-                z12->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
-                z12->carregar_plataforma(new Plataforma(ALTA)); // 1 PLATAFORMA ALTA
-                z12->carregar_plataforma(new Plataforma(MEDIA)); // 1 PLATAFORMA MÉDIA
-                z12->carregar_plataforma(new Plataforma(BAIXA)); // 1 PLATAFORMA BAIXA
+                z12->carregar_plataforma(new Plataforma(Camada::CHAO)); // CHÃO
+                z12->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
+                z12->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
+                z12->carregar_plataforma(new Plataforma(Camada::ALTA)); // 1 PLATAFORMA ALTA
+                z12->carregar_plataforma(new Plataforma(Camada::MEDIA)); // 1 PLATAFORMA MÉDIA
+                z12->carregar_plataforma(new Plataforma(Camada::BAIXA)); // 1 PLATAFORMA BAIXA
 
             } else /* if (jogo.player != nullptr) */ { // LOOP DE AÇÕES DO JOGO
 
@@ -352,7 +352,7 @@ int main() {
 
                     alvo = zonaAtual->get_plataforma(indiceAlvo);
 
-                    distanciaAlvo = alvo->get_camada() - jogo.player->get_camada();
+                    distanciaAlvo = static_cast<int>(alvo->get_camada()) - static_cast<int>(jogo.player->get_camada());
 
                     if (distanciaAlvo >= 3 || distanciaAlvo == 2 && !jogo.player->get_pulo_duplo()) {
 
@@ -369,7 +369,7 @@ int main() {
 
                         std::string nomeAtacante = atacante->get_nome();
 
-                        if (nomeAtacante == "Chefe" && jogo.player->get_camada() == CHAO && !jogo.player->get_pulo_duplo()) {
+                        if (nomeAtacante == "Chefe" && jogo.player->get_camada() == Camada::CHAO && !jogo.player->get_pulo_duplo()) {
 
                             atacante->atacar(*jogo.player);
 
@@ -393,7 +393,7 @@ int main() {
 
                         jogo.terminal.output("Não há coletáveis nessa zona.");
                     
-                    } else if (jogo.player->get_camada() != CHAO) { // PLAYER NÃO ESTÁ NO CHÃO
+                    } else if (jogo.player->get_camada() != Camada::CHAO) { // PLAYER NÃO ESTÁ NO CHÃO
 
                         jogo.terminal.output("Não é possível coletar itens onde você está");
 
@@ -489,7 +489,7 @@ int main() {
                         turnoInimigos = false;
 
                         jogo.player->set_plataforma(zonaAtual->get_plataforma(0));
-                        jogo.player->set_camada(CHAO);
+                        jogo.player->set_camada(Camada::CHAO);
 
                         jogo.terminal.output("Você avançou para a Zona ", false);
                         jogo.terminal.output(indiceZonaAtual + 1);
@@ -508,7 +508,7 @@ int main() {
                         turnoInimigos = false;
 
                         jogo.player->set_plataforma(zonaAtual->get_plataforma(0));
-                        jogo.player->set_camada(CHAO);
+                        jogo.player->set_camada(Camada::CHAO);
 
                         jogo.terminal.output("Você voltou para a Zona ", false);
                         jogo.terminal.output(indiceZonaAtual + 1);

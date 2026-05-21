@@ -3,7 +3,7 @@
 Player::Player() {
     set_nome("Helicônia");
     set_vida(maxVida);
-    set_camada(CHAO);
+    set_camada(Camada::CHAO);
 }
 
 bool Player::curar() {

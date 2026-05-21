@@ -10,14 +10,14 @@ class Plataforma {
     private:
 
         std::string nome;
-        enum Camada camada;
+        Camada camada;
     
     public:
 
-        Plataforma(enum Camada camada);
+        Plataforma(Camada camada);
 
         const std::string& get_nome() { return nome; }
-        enum Camada get_camada() { return camada; }
+        Camada get_camada() { return camada; }
 
 };
 

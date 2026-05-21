@@ -1,19 +1,19 @@
 #include "../../include/mundo/Plataforma.h"
 
-Plataforma::Plataforma(enum Camada camada) : camada(camada) {
+Plataforma::Plataforma(Camada camada) : camada(camada) {
 
     switch (camada) {
 
-        case CHAO:
+        case Camada::CHAO:
             nome = "Chão";
             break;
-        case BAIXA:
+        case Camada::BAIXA:
             nome = "Plataforma baixa";
             break;
-        case MEDIA:
+        case Camada::MEDIA:
             nome = "Plataforma média";
             break;
-        case ALTA:
+        case Camada::ALTA:
             nome = "Plataforma alta";
             break;
             

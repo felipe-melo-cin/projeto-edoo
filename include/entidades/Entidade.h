@@ -13,7 +13,7 @@ class Entidade {
         std::string nome;
         int vida;
         bool atacando = false;
-        enum Camada camada;
+        Camada camada;
 
     public:
         
@@ -24,13 +24,13 @@ class Entidade {
         const std::string& get_nome() {return nome;}
         int get_vida() {return vida;}
         bool get_atacando() {return atacando;}
-        enum Camada get_camada() {return camada;}
+        Camada get_camada() {return camada;}
         
         // Setters
         void set_nome(std::string nome) {this->nome = nome;}
         void set_vida(int vida) {this->vida = vida;}
         void toggle_atacando() {atacando = !atacando;}
-        void set_camada(enum Camada camada) {this->camada = camada;}
+        void set_camada(Camada camada) {this->camada = camada;}
         
 };
 
