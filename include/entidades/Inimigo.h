@@ -10,6 +10,8 @@ class Inimigo : public Entidade {
         Inimigo() {}
         virtual ~Inimigo() {}
 
+        const std::string& get_nome() { return Entidade::get_nome(); }
+
 };
 
 #endif

@@ -16,6 +16,9 @@ class Entidade {
         Camada camada;
 
     public:
+
+        Entidade() {}
+        virtual ~Entidade() {}
         
         void atacar(Entidade& alvo); // Recebe um alvo e lhe inflige dano
         void sofrer_dano(); // Decrementa a vida
