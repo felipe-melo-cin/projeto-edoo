@@ -1,13 +1,13 @@
 #include <iostream>
+
 #include "../../include/objetos/Coletavel.h"
 
+int Coletavel::gerarPosicao(){
 
-/*decide onde o coletavel vai nascer, baseado em qual posição do vetor da zona da instancia,atraves da geraçao de um numero aleatório de 0 a 12*/
-int Coletavel::aparecer(){
-
-    static std::mt19937 gerador(std::time(nullptr));//gerador utilizando o unix timestamp para valores pseudoaleatórios únicos
+    static std::mt19937 gerador(std::time(nullptr)); // Gerador utilizando o unix timestamp para valores pseudoaleatórios únicos
 
     std::uniform_int_distribution<int> distribuicao(0, 12);
     
     return distribuicao(gerador);
+    
 }

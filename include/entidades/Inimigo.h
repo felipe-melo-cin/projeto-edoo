@@ -7,10 +7,12 @@ class Inimigo : public Entidade {
 
     public:
 
-        Inimigo() {}
-        virtual ~Inimigo() {}
+        Inimigo() {}          // Construtor
+        virtual ~Inimigo() {} // Destrutor
 
-        const std::string& get_nome() { return Entidade::get_nome(); }
+        // Getters
+        
+        const std::string& get_nome() {return Entidade::get_nome();}
 
 };
 

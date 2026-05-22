@@ -5,20 +5,20 @@
 #include <string>
 
 #include "../mundo/Zona.h"
-
 #include "../entidades/Entidade.h"
-
 #include "../utilitarios/str_to_upper.h"
 
-class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
+// CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
+class InterfaceComando {
 
     private:
 
         InterfaceComando(); // SINGLETON DESIGN PATTERN: CONSTRUTOR PRIVADO
 
         // INPUTS ARMAZENADOS NO TERMINAL
+
         std::string stringIn;
-        int intIn;
+        int         intIn   ;
 
     public:
 
@@ -32,19 +32,22 @@ class InterfaceComando { // CONTROLAS AS ENTRADAS E SAÍDAS DO TERMINAL
         // END SINGLETON DESIGN PATTERN
 
         // IMPRIME UMA LINHA VAZIA
-        void line_break() const { std::cout << std::endl; }
+        void line_break() const {std::cout << std::endl;}
 
         // ARMAZENAM INPUT DO USUÁRIO NO TERMINAL
-        void input() { std::cin >> stringIn; std::cin.sync(); str_to_upper(stringIn); }
-        void int_input() { std::cin >> intIn; std::cin.sync(); }
 
-        // RETORNA INPUT ARMAZENADO NO TERMINAL
-        std::string get_input() const { return stringIn; };
-        int get_int_input() const { return intIn; }
+        void input    () {std::cin >> stringIn; std::cin.sync(); str_to_upper(stringIn);}
+        void int_input() {std::cin >> intIn   ; std::cin.sync();}
 
-        template <class T> void output(const T&, bool = true) const;
-        template <class T> void prompt(const T&, bool = false);
-        template <class T> void int_prompt(const T&, bool = false);
+        // RETORNAM INPUT ARMAZENADO NO TERMINAL
+
+        std::string get_input    () const {return stringIn;};
+        int         get_int_input() const {return intIn   ;}
+
+        template <class T> void output      (const T&, bool = true ) const;
+        template <class T> void prompt      (const T&, bool = false)      ;
+        template <class T> void int_prompt  (const T&, bool = false)      ;
+        
         template <class T> void listar_vetor(Zona*, T* (Zona::*)(int), const std::string& (T::*)(), int (Zona::*)()) const;
 
 };

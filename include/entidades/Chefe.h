@@ -8,8 +8,8 @@ class Chefe : public Inimigo {
 
     public:
 
-        Chefe();
-        ~Chefe() {}
+        Chefe();    // Construtor
+        ~Chefe() {} // Destrutor
 
 };
 

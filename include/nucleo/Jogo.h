@@ -3,10 +3,12 @@
 
 #include "InterfaceComando.h"
 #include "MaquinaEstados.h"
+
 #include "../entidades/Player.h"
 #include "../mundo/Zona.h"
 
-class Jogo { // CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
+// CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
+class Jogo {
 
     private:
 
@@ -23,10 +25,10 @@ class Jogo { // CONTROLA OS ELEMENTOS DO JOGO E O TERMINAL
 
         // END SINGLETON DESIGN PATTERN
 
-        MaquinaEstados& maquinaEstados;
-        InterfaceComando& terminal;
-        Player* player = nullptr;
-        Zona* zonas[13];
+        MaquinaEstados  & maquinaEstados          ;
+        InterfaceComando& terminal                ;
+        Player          * player         = nullptr;
+        Zona            * zonas[13]               ;
 
 };
 

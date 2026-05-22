@@ -8,8 +8,8 @@ class Capivara : public Inimigo {
     
     public:
 
-        Capivara();
-        ~Capivara() {}
+        Capivara();    // Construtor
+        ~Capivara() {} // Destrutor
 
 };
 

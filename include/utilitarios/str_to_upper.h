@@ -5,6 +5,6 @@
 #include <string>
 
 // TRANSFORMA TODOS OS CARACTERES DE UMA STRING EM MAIÚSCULO
-inline void str_to_upper(std::string& s) { for (char& c : s) c = std::toupper(c); }
+inline void str_to_upper(std::string& s) {for (char& c : s) c = std::toupper(c);}
 
 #endif

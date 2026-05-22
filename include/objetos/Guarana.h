@@ -2,22 +2,22 @@
 #define _GUARANA_H_
 
 #include <string>
+
 #include "Coletavel.h"
 
 class Guarana : public Coletavel {
 
-  private:
+    private:
 
-    const static int codigo = 0; // a decidir qual o critério
+        const static int codigo = 0; // A decidir qual o critério
 
-  public:
+    public:
 
-  Guarana();
+        Guarana();    // Construtor
+        ~Guarana() {} // Destrutor
 
-    const static int get_codigo() {
-      
-    return codigo;
-  }
+        const static int get_codigo() {return codigo;}
+
 };
 
 #endif

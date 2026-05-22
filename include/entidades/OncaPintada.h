@@ -3,13 +3,13 @@
 
 #include "Inimigo.h"
 
-// Inimigo: Onça Pintada
+// Inimigo: Onça Pintuda
 class OncaPintada : public Inimigo {
     
     public:
 
-        OncaPintada();
-        ~OncaPintada() {}
+        OncaPintada();    // Construtor
+        ~OncaPintada() {} // Destrutor
 
 };
 

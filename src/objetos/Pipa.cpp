@@ -3,4 +3,5 @@
 Pipa::Pipa() {
     
     set_nome("Pipa");
+    
 }

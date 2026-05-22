@@ -9,15 +9,18 @@ class Plataforma {
 
     private:
 
-        std::string nome;
-        Camada camada;
+        std::string nome  ;
+        Camada      camada;
     
     public:
 
-        Plataforma(Camada camada);
+        Plataforma(Camada camada); // Construtor
+        ~Plataforma() {}           // Destrutor
 
-        const std::string& get_nome() { return nome; }
-        Camada get_camada() { return camada; }
+        // Getters
+
+        const std::string& get_nome  () {return nome  ;}
+        Camada             get_camada() {return camada;}
 
 };
 

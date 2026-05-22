@@ -2,8 +2,8 @@
 #define _COLETAVEL_H_
 
 #include <string>
-#include <random> //biblioteca muito melhor para gerar aleatórios em relação as tranqueiras do C.
-#include <ctime> //semente para deixar as saídas pseudoaleatórias
+
+#include "gerador_aleatoriedade.h"
 
 class Coletavel {
 
@@ -13,17 +13,19 @@ class Coletavel {
 
     public:
 
-        Coletavel() {}
-        virtual ~Coletavel() {}
+        Coletavel() {}          // Construtor
+        virtual ~Coletavel() {} // Destrutor
 
-        int aparecer();
+        int gerarPosicao(); // Gera e retorna uma posição aleatória de 0 a 12
 
-        // Getter
-        const std::string& get_nome() { return nome; }
+        // Getters
 
-        // Setter
-        void set_nome(const std::string& nome) { this->nome = nome; }
+        const std::string& get_nome() {return nome;}
 
-    };
+        // Setters
+        
+        void set_nome(const std::string& nome) {this->nome = nome;}
+
+};
 
 #endif

@@ -3,13 +3,13 @@
 
 #include "Inimigo.h"
 
-// Inimigo: Tucanoi
+// Inimigo: Tucanp
 class Tucano : public Inimigo {
 
     public:
 
-        Tucano();
-        ~Tucano() {}
+        Tucano();    // Construtor
+        ~Tucano() {} // Destrutor
 
 };
 

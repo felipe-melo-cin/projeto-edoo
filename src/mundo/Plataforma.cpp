@@ -4,8 +4,8 @@ Plataforma::Plataforma(Camada camada) : camada(camada) {
 
     switch (camada) {
 
-        case Camada::CHAO:
-            nome = "Chão";
+        case Camada::CHAO :
+            nome = "Chão"            ;
             break;
         case Camada::BAIXA:
             nome = "Plataforma baixa";
@@ -13,8 +13,8 @@ Plataforma::Plataforma(Camada camada) : camada(camada) {
         case Camada::MEDIA:
             nome = "Plataforma média";
             break;
-        case Camada::ALTA:
-            nome = "Plataforma alta";
+        case Camada::ALTA :
+            nome = "Plataforma alta" ;
             break;
             
     }

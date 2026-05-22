@@ -1,13 +1,15 @@
 #ifndef _MAQUINAESTADOS_H_
 #define _MAQUINAESTADOS_H_
 
-class MaquinaEstados { // CONTROLA OS ESTADOS DO JOGO
+// CONTROLA OS ESTADOS DO JOGO
+class MaquinaEstados {
 
     private:
 
         MaquinaEstados(); // SINGLETON DESIGN PATTERN: CONSTRUTOR PRIVADO
 
         // ESTADOS DO JOGO
+        
         bool emJogo;
         bool venceu;
 
@@ -23,12 +25,14 @@ class MaquinaEstados { // CONTROLA OS ESTADOS DO JOGO
         // END SINGLETON DESIGN PATTERN
 
         // RETORNA ESTADO DO JOGO
-        bool get_em_jogo() const { return emJogo; }
-        bool get_venceu() const { return venceu; }
+
+        bool get_em_jogo() const {return emJogo;}
+        bool get_venceu () const {return venceu;}
 
         // INVERTE ESTADO DO JOGO
-        void toggle_em_jogo() { emJogo = !emJogo; }
-        void toggle_venceu() { venceu = !venceu; }
+
+        void toggle_em_jogo() {emJogo = !emJogo;}
+        void toggle_venceu () {venceu = !venceu;}
 
 };
 

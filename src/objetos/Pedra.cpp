@@ -3,4 +3,5 @@
 Pedra::Pedra() {
     
     set_nome("Pedra");
+    
 }
