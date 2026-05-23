@@ -283,9 +283,10 @@ int main() {
                     // JOGADOR ESCOLHE
                     terminalInput = format_int_prompt(jogo);
 
-                    if (terminalInput < 0 || terminalInput >= 5)
+                    if (terminalInput < 0 || terminalInput >= 5) {
                         jogo.terminal.output("\n====================\n");
                         jogo.terminal.output("Ação inválida.");
+                    }
 
                 } while (terminalInput < 0 || terminalInput >= 5);
             
