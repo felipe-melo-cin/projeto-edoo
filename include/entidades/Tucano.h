@@ -3,7 +3,7 @@
 
 #include "Inimigo.h"
 
-// Inimigo: Tucanp
+// Inimigo: Tucano
 class Tucano : public Inimigo {
 
     public:
