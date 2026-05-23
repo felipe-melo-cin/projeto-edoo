@@ -2,6 +2,7 @@
 
 Pedra::Pedra() {
     
+    set_tipo(TipoColetavel::PEDRA);
     set_nome("Pedra");
     
 }

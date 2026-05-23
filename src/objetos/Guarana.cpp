@@ -2,6 +2,7 @@
 
 Guarana::Guarana() {
     
+    set_tipo(TipoColetavel::GUARANA);
     set_nome("Guaraná");
     
 }
