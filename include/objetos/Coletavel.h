@@ -29,8 +29,8 @@ class Coletavel {
 
         // Setters
         
-        TipoColetavel set_tipo(TipoColetavel tipo) {this->tipo = tipo;}
-        void          set_nome(std::string nome  ) {this->nome = nome;}
+        void set_tipo(TipoColetavel tipo) {this->tipo = tipo;}
+        void set_nome(std::string nome  ) {this->nome = nome;}
 
 };
 
