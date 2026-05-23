@@ -1,6 +1,7 @@
 #ifndef _INTERFACECOMANDO_H_
 #define _INTERFACECOMANDO_H_
 
+#include <stdexcept>
 #include <iostream>
 #include <string>
 
@@ -36,12 +37,12 @@ class InterfaceComando {
 
         // ARMAZENAM INPUT DO USUÁRIO NO TERMINAL
 
-        void input    () {std::cin >> stringIn; std::cin.sync(); str_to_upper(stringIn);}
-        void int_input() {std::cin >> intIn   ; std::cin.sync();}
+        void input    ();
+        void int_input();
 
         // RETORNAM INPUT ARMAZENADO NO TERMINAL
 
-        std::string get_input    () const {return stringIn;};
+        std::string get_input    () const {return stringIn;}
         int         get_int_input() const {return intIn   ;}
 
         template <class T> void output      (const T&, bool = true ) const;
