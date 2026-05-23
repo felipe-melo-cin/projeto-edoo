@@ -6,10 +6,7 @@
 #include "Entidade.h"
 
 #include "../mundo/Plataforma.h"
-
-#include "../objetos/Guarana.h"
-#include "../objetos/Pedra.h"
-#include "../objetos/Pipa.h"
+#include "../objetos/TipoColetavel.h"
 
 class Player : public Entidade {
 
@@ -19,9 +16,9 @@ class Player : public Entidade {
         bool puloDuplo = false;
         Plataforma* plataforma;
         std::unordered_map<int, int> inventario = {
-            {Guarana::get_codigo(), 0 },
-            {Pedra::get_codigo()  , 10},
-            {Pipa::get_codigo()   , 0 }
+            {static_cast<int>(TipoColetavel::GUARANA), 0 },
+            {static_cast<int>(TipoColetavel::PEDRA)  , 10},
+            {static_cast<int>(TipoColetavel::PIPA)   , 0 }
         };
     
     public:

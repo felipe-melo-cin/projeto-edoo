@@ -3,7 +3,7 @@
 
 #include <string>
 
-#include "../utilitarios/Camada.h"
+#include "../mundo/Camada.h"
 
 // Entidades, incluindo jogador e inimigos
 class Entidade {
@@ -12,29 +12,30 @@ class Entidade {
 
         std::string nome            ;
         int         vida            ;
-        bool        atacando = false;
         Camada      camada          ;
+    
+    protected:
+
+        Entidade() {} // CLASSE ABSTRATA: CONSTRUTOR PROTEGIDO
+
+        void sofrer_dano(); // Decrementa a vida
 
     public:
 
-        Entidade() {}          // Construtor
         virtual ~Entidade() {} // Destrutor
         
         void atacar(Entidade& alvo); // Inflige dano ao alvo recebido
-        void sofrer_dano();          // Decrementa a vida
 
         // Getters
 
         const std::string& get_nome    () {return nome;    }
         int                get_vida    () {return vida;    }
-        bool               get_atacando() {return atacando;}
         Camada             get_camada  () {return camada;  }
         
         // Setters
 
         void set_nome       (std::string nome  ) {this->nome   = nome     ;}
         void set_vida       (int         vida  ) {this->vida   = vida     ;}
-        void toggle_atacando(                  ) {atacando     = !atacando;}
         void set_camada     (Camada      camada) {this->camada = camada   ;}
         
 };
