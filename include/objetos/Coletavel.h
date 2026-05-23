@@ -3,8 +3,6 @@
 
 #include <string>
 
-#include "gerador_aleatoriedade.h"
-
 class Coletavel {
 
     private:
